@@ -87,23 +87,23 @@ function showToast() {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const isGerman = window.location.pathname.includes("/de/");
     let message = "";
-    let title = isGerman ? "Gespeichert!" : "Bewaard!";
+    let title = isGerman ? "📲 Zum Startbildschirm hinzufügen" : "📲 Toevoegen aan startscherm";
     
     if (/android/i.test(userAgent)) {
         message = isGerman ? 
-            "Tippen Sie auf das Menü [⋮] und dann auf<br><b>Zum Startbildschirm hinzufügen</b>!" : 
-            "Tik op het menu [⋮] en kies<br><b>Toevoegen aan startscherm</b>!";
+            "Tippen Sie oben rechts auf <b>[⋮]</b> und dann auf<br><b>Zum Startbildschirm hinzufügen</b>!" : 
+            "Tik rechtsboven op <b>[⋮]</b> en kies<br><b>Toevoegen aan startscherm</b>!";
     } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
         message = isGerman ? 
-            "Tippen Sie unten auf Teilen [↑] und dann auf<br><b>Zum Startbildschirm hinzufügen</b>!" : 
-            "Tik op delen [↑] en kies<br><b>Zet op beginscherm</b>!";
+            "Tippen Sie unten auf Teilen <b>[↑]</b> und dann auf<br><b>Zum Startbildschirm hinzufügen</b>!" : 
+            "Tik onderaan op delen <b>[↑]</b> en kies<br><b>Zet op beginscherm</b>!";
     } else {
         message = isGerman ? 
-            "Drücken Sie <b>Ctrl+D</b> (Mac: Cmd+D),<br>um diese Seite zu speichern!" :
-            "Toets <b>Ctrl+D</b> (Mac: Cmd+D) in<br>om deze pagina te bewaren!";
+            "Klicken Sie auf das <b>⭐-Symbol</b> in Ihrem Browser<br>oder drücken Sie <b>Ctrl+D</b> (Mac: Cmd+D)!" :
+            "Klik op het <b>⭐-icoon</b> in uw browser<br>of druk op <b>Ctrl+D</b> (Mac: Cmd+D)!";
     }
     
-    toast.innerHTML = `⭐ <b>${title}</b><br>${message}`;
+    toast.innerHTML = `<b>${title}</b><br><span style="font-size: 0.9rem;">${message}</span>`;
     toast.classList.add("show");
     
     setTimeout(() => {
