@@ -646,23 +646,11 @@ iframe[src*="netlify"], #netlify-hud, [data-netlify-site-id], div[class*="netlif
     }
 
     /* Booking Section Mobile Full-Width Optimization */
-    #booking {
-        padding: 3rem 0 !important;
-    }
     #booking .container {
-        padding: 0 12px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
+        padding: 0 12px;
     }
-    #booking .calendly-external-wrapper,
-    #booking div[style*="max-width: 650px"] {
-        padding: 1.5rem 1rem !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
+    .calendly-external-wrapper {
+        padding: 1.5rem 1rem;
     }
 
     footer, .custom-footer {
@@ -717,8 +705,7 @@ iframe[src*="netlify"], #netlify-hud, [data-netlify-site-id], div[class*="netlif
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .toast-notification.show {
-    top: 80px !important;
-    bottom: auto !important;
+    top: 80px;
 }
 
 /* Floating Favorite Pill Button */
