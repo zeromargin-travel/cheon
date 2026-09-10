@@ -509,7 +509,9 @@ footer a:hover {
 .x-share { background-color: #000000; }
 .in-share { background-color: #0A66C2; }
 .copy-share { background-color: var(--primary-dark); }
-.native-share { background-color: var(--accent-color); }
+.calendly-external-wrapper {
+    padding: 2.5rem 2rem;
+}
 
 /* Dual Floating Action Bar (CTA) */
 .floating-cta-container {
