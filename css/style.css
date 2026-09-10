@@ -645,11 +645,22 @@ iframe[src*="netlify"], #netlify-hud, [data-netlify-site-id], div[class*="netlif
 
     /* Booking Section Mobile Full-Width Optimization */
     #booking {
-        padding: 3.5rem 0.6rem !important;
+        padding: 3rem 0 !important;
     }
-    .calendly-external-wrapper,
+    #booking .container {
+        padding: 0 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    #booking .calendly-external-wrapper,
     #booking div[style*="max-width: 650px"] {
         padding: 1.5rem 1rem !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     footer, .custom-footer {
