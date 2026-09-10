@@ -643,6 +643,15 @@ iframe[src*="netlify"], #netlify-hud, [data-netlify-site-id], div[class*="netlif
         padding: 3.5rem 0;
     }
 
+    /* Booking Section Mobile Full-Width Optimization */
+    #booking {
+        padding: 3.5rem 0.6rem !important;
+    }
+    .calendly-external-wrapper,
+    #booking div[style*="max-width: 650px"] {
+        padding: 1.5rem 1rem !important;
+    }
+
     footer, .custom-footer {
         padding-bottom: 6.5rem;
     }
