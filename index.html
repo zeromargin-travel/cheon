@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- ── SEO ── -->
-  <title>Minkyeong Cheon (千民京) — Official Music Site</title>
-  <meta name="description" content="Official website of Minkyeong Cheon (千民京) — guitarist, composer, and music producer. Watch live performances on YouTube and stream music on Spotify." />
-  <meta name="keywords" content="Minkyeong Cheon, 千民京, jazz guitarist, composer, Reuben Project, The Four Winds, Elea Music, Spotify, YouTube" />
+  <title>Minkyeong Cheon (千民京) — Official Site</title>
+  <meta name="description" content="Official website of Minkyeong Cheon (千民京) — guitarist, composer, and music producer. Explore The Four Winds, Reuben Project, Two Sides, and produced works." />
+  <meta name="keywords" content="Minkyeong Cheon, 千民京, jazz guitarist, composer, music producer, The Four Winds, Reuben Project, Two Sides, Casting the Net" />
   <meta name="author" content="Minkyeong Cheon" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://zeromargin-travel.github.io/cheon/" />
 
   <!-- ── Open Graph ── -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Minkyeong Cheon (千民京) — Official Music Site" />
-  <meta property="og:description" content="Guitarist, composer, and music producer. Discover her work across YouTube and Spotify." />
+  <meta property="og:title" content="Minkyeong Cheon (千民京) — Official Site" />
+  <meta property="og:description" content="Guitarist, composer, and music producer. Explore recordings, YouTube channels, and Spotify albums." />
   <meta property="og:url" content="https://zeromargin-travel.github.io/cheon/" />
   <meta property="og:image" content="https://zeromargin-travel.github.io/cheon/profile.jpg" />
   <meta property="og:site_name" content="Minkyeong Cheon" />
@@ -35,35 +35,46 @@
     "alternateName": "千民京",
     "url": "https://zeromargin-travel.github.io/cheon/",
     "sameAs": [
-      "https://www.youtube.com/@EleaMusicTS",
+      "https://www.youtube.com/@thefourwinds5737",
       "https://www.youtube.com/@reuben1107",
-      "https://www.youtube.com/@thefourwinds415",
+      "https://www.youtube.com/@EleaMusicTS",
       "https://open.spotify.com/artist/3HseuAz512ng1JkjhT3bG7"
     ],
-    "genre": ["Jazz", "Contemporary Music"],
-    "description": "Guitarist, composer, and music producer based in Japan."
+    "genre": ["Jazz", "Contemporary", "Acoustic"],
+    "description": "Guitarist, composer, and music producer."
   }
   </script>
 
-  <!-- ── Favicon (inline SVG) ── -->
+  <!-- ── Favicon ── -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎸</text></svg>" />
+
+  <!-- ── External Fonts & Three.js ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <!-- ── Stylesheet ── -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ================================================================
-       NAVIGATION
-  ================================================================ -->
+  <!-- ── 3D WebGL Canvas Background ── -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- ── NAVIGATION ── -->
   <nav id="nav" role="navigation" aria-label="Main navigation">
-    <a href="#hero" class="nav-logo" id="nav-logo">Minkyeong Cheon</a>
+    <a href="#hero" class="nav-logo">
+      <span class="nav-logo-en">Minkyeong Cheon</span>
+      <span class="nav-logo-jp">千民京</span>
+    </a>
 
     <ul class="nav-links" id="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#featured">Watch</a></li>
-      <li><a href="#channels">Channels</a></li>
-      <li><a href="#music">Music</a></li>
+      <li><a href="#main-works">01 Works</a></li>
+      <li><a href="#produced-works">02 Production</a></li>
+      <li><a href="#other-works">03 Live</a></li>
+      <li><a href="#about">04 About</a></li>
+      <li><a href="#contact">05 Contact</a></li>
     </ul>
 
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -71,283 +82,335 @@
     </button>
   </nav>
 
-  <!-- ================================================================
-       HERO
-  ================================================================ -->
+  <!-- ── HERO ── -->
   <section id="hero" aria-label="Hero">
-    <div class="hero-bg"></div>
-    <canvas id="particle-canvas" aria-hidden="true"></canvas>
-
-    <!-- Artist Profile Photo -->
-    <div class="hero-photo-wrap">
+    <div class="hero-photo-wrap tilt-card" data-tilt-max="8">
       <img
         src="profile.jpg"
-        alt="Minkyeong Cheon — guitarist performing with The Four Winds"
+        alt="Minkyeong Cheon — Guitarist & Composer"
         class="hero-photo"
         loading="eager"
       />
+      <div class="hero-photo-overlay"></div>
     </div>
 
-    <!-- Content -->
     <div class="hero-content">
-      <p class="hero-eyebrow">Official Website</p>
-
+      <div class="hero-eyebrow">MUSIC · COMPOSITION · PRODUCTION</div>
       <h1 class="hero-name">
         <span class="hero-name-en">Minkyeong Cheon</span>
         <span class="hero-name-jp">千 民 京</span>
       </h1>
 
       <p class="hero-tagline">
-        Guitarist &amp; Composer — weaving intimate soundscapes between jazz, improvisation, and contemporary music.
+        Guitarist, composer, and music producer. Exploring the subtle spaces between sound, moving image, and improvisation.
       </p>
 
       <div class="hero-cta">
-        <a href="#featured" class="btn-primary" id="hero-watch-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-          Watch Now
+        <a href="#main-works" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          Explore Works
         </a>
-        <a href="#music" class="btn-outline" id="hero-listen-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-          Stream Music
+        <a href="#about" class="btn-outline">
+          About Artist
         </a>
       </div>
     </div>
 
-    <div class="scroll-indicator" aria-hidden="true">
-      <span>Scroll</span>
+    <div class="scroll-indicator">
+      <span>SCROLL TO EXPLORE</span>
       <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ================================================================
-       ABOUT  (data-order="1" — reorder by changing this value)
-  ================================================================ -->
-  <section id="about" class="section" data-order="1">
+  <!-- ── 01 / MAIN WORKS ── -->
+  <section id="main-works" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="chapter-number">01 / CHEON MINKYEONG</div>
+        <h2 class="section-title">Main Works</h2>
+        <p class="section-subtitle">Original compositions, cross-cultural collaborations, and ensemble recordings.</p>
+      </div>
+
+      <!-- WORK ITEM 1: THE FOUR WINDS -->
+      <div class="work-block reveal">
+        <div class="work-header">
+          <div class="work-title-wrap">
+            <span class="work-index">01</span>
+            <h3 class="work-title">The Four Winds</h3>
+          </div>
+          <a href="https://www.youtube.com/@thefourwinds5737" target="_blank" rel="noopener" class="work-channel-link">
+            YouTube Channel ↗
+          </a>
+        </div>
+
+        <p class="work-desc">
+          Cross-cultural ensemble project weaving acoustic warmth, world music textures, and expressive improvisation.
+        </p>
+
+        <div class="work-grid">
+
+          <!-- Vol. 1 YouTube Playlist -->
+          <div class="card tilt-card">
+            <div class="card-tag">YouTube Playlist</div>
+            <h4 class="card-heading">The Four Winds Vol. 1</h4>
+            <p class="card-subtext">The debut chapter of the Four Winds ensemble journey.</p>
+            <div class="playlist-embed-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLzm5i-6zRjVZmUhz2ddxh9WIDINQaoVj3"
+                title="The Four Winds Vol. 1 Playlist"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <a href="https://www.youtube.com/playlist?list=PLzm5i-6zRjVZmUhz2ddxh9WIDINQaoVj3" target="_blank" rel="noopener" class="card-link">
+              Open Playlist on YouTube ↗
+            </a>
+          </div>
+
+          <!-- Vol. 2 Album & Playlist with 3D Vinyl Sleeve -->
+          <div class="card tilt-card highlight-card">
+            <div class="card-tag">Album &amp; Playlist · Featured</div>
+            <h4 class="card-heading">The Four Winds Vol. 2</h4>
+            <p class="card-subtext">The expanded album recording and video suite.</p>
+
+            <!-- 3D Interactive Vinyl Album Sleeve -->
+            <div class="album-3d-wrap">
+              <div class="vinyl-sleeve">
+                <div class="vinyl-cover">
+                  <div class="vinyl-cover-title">THE FOUR WINDS</div>
+                  <div class="vinyl-cover-sub">VOL. 2</div>
+                  <div class="vinyl-cover-artist">MINKYEONG CHEON</div>
+                </div>
+                <div class="vinyl-record">
+                  <div class="vinyl-center-label">Vol. 2</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <a href="https://open.spotify.com/album/4Z73rfzoJZTNK96i0xyU8f" target="_blank" rel="noopener" class="btn-spotify">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                Listen on Spotify
+              </a>
+              <a href="https://www.youtube.com/playlist?list=PLY5SIXMCVELE" target="_blank" rel="noopener" class="btn-outline-sm">
+                YouTube Playlist ↗
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="divider-line"></div>
+
+      <!-- WORK ITEM 2: REUBEN PROJECT -->
+      <div class="work-block reveal">
+        <div class="work-header">
+          <div class="work-title-wrap">
+            <span class="work-index">02</span>
+            <h3 class="work-title">Reuben Project</h3>
+          </div>
+          <a href="https://www.youtube.com/@reuben1107" target="_blank" rel="noopener" class="work-channel-link">
+            YouTube Channel ↗
+          </a>
+        </div>
+
+        <p class="work-desc">
+          Jazz quartet studio sessions and live improvisational soundscapes captured on film.
+        </p>
+
+        <div class="work-grid">
+          <div class="card tilt-card">
+            <div class="card-tag">YouTube Playlist</div>
+            <h4 class="card-heading">Reuben Project Vol. 1</h4>
+            <p class="card-subtext">Original jazz quartet compositions and studio sessions.</p>
+            <a href="https://www.youtube.com/playlist?list=PLUMwKrPl2nLE" target="_blank" rel="noopener" class="card-link">
+              Watch Playlist on YouTube ↗
+            </a>
+          </div>
+
+          <div class="card tilt-card">
+            <div class="card-tag">YouTube Playlist</div>
+            <h4 class="card-heading">Reuben Project Vol. 2</h4>
+            <p class="card-subtext">Expanded arrangements, live performances, and dialogues.</p>
+            <a href="https://www.youtube.com/playlist?list=PLHBw33w7-6qM" target="_blank" rel="noopener" class="card-link">
+              Watch Playlist on YouTube ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider-line"></div>
+
+      <!-- WORK ITEM 3: TWO SIDES -->
+      <div class="work-block reveal">
+        <div class="work-header">
+          <div class="work-title-wrap">
+            <span class="work-index">03</span>
+            <h3 class="work-title">Two Sides</h3>
+            <span class="work-artist-credit">Minkyeong Cheon &amp; Ruud Ouwehand</span>
+          </div>
+        </div>
+
+        <p class="work-desc">
+          An intimate duo dialogue album featuring guitarist Minkyeong Cheon and bassist Ruud Ouwehand.
+        </p>
+
+        <div class="work-grid">
+          <div class="card tilt-card highlight-card">
+            <div class="card-tag">Duo Album &amp; Channel</div>
+            <h4 class="card-heading">「Two Sides」</h4>
+            <p class="card-subtext">Published under Elea Music. Acoustic nuance and interactive duo mastery.</p>
+
+            <div class="card-actions">
+              <a href="https://open.spotify.com/artist/3HseuAz512ng1JkjhT3bG7?si=63-UoPXnT4qFywr9nhPPnQ" target="_blank" rel="noopener" class="btn-spotify">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                EleaMusic on Spotify
+              </a>
+              <a href="https://www.youtube.com/@EleaMusicTS" target="_blank" rel="noopener" class="btn-outline-sm">
+                YouTube Channel ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── 02 / PRODUCED WORKS ── -->
+  <section id="produced-works" class="section section-darker">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="chapter-number">02 / PRODUCED BY CHEON MINKYEONG</div>
+        <h2 class="section-title">Produced Works</h2>
+        <p class="section-subtitle">Arrangements, music production, and sound design for collaborative albums.</p>
+      </div>
+
+      <div class="produced-card tilt-card reveal">
+        <div class="produced-content">
+          <div class="card-tag">Music Production &amp; Arrangement</div>
+          <h3 class="produced-title">Casting the Net</h3>
+          <div class="produced-subtitle">ICF Enschede Praise</div>
+          <p class="produced-desc">
+            An inspiring worship album produced, arranged, and performed with ICF Enschede Praise, featuring rich ensemble textures and acoustic warmth.
+          </p>
+
+          <!-- 3D Interactive Vinyl Album Sleeve -->
+          <div class="album-3d-wrap">
+            <div class="vinyl-sleeve sleeve-gold">
+              <div class="vinyl-cover">
+                <div class="vinyl-cover-title">CASTING THE NET</div>
+                <div class="vinyl-cover-sub">ICF ENSCHEDE PRAISE</div>
+                <div class="vinyl-cover-artist">PRODUCED BY MINKYEONG CHEON</div>
+              </div>
+              <div class="vinyl-record">
+                <div class="vinyl-center-label">ICF</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="produced-actions">
+            <a href="https://open.spotify.com/album/63ddq0x3eFggm9fUsXBKUx?si=FDbavjFxQ1aC74-HPFJjkg&nd=1&dlsi=e682e5cbc44b468f" target="_blank" rel="noopener" class="btn-spotify">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+              Listen on Spotify
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLPRZiBDd1QL4" target="_blank" rel="noopener" class="btn-outline">
+              YouTube Playlist ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="spotify-embed-frame">
+          <iframe
+            src="https://open.spotify.com/embed/album/63ddq0x3eFggm9fUsXBKUx?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="Casting the Net on Spotify"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 03 / OTHER & LIVE PERFORMANCES ── -->
+  <section id="other-works" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="chapter-number">03 / ALSO AVAILABLE &amp; LIVE</div>
+        <h2 class="section-title">Live Performance &amp; Press</h2>
+        <p class="section-subtitle">Concert footage, solo moments, and published features.</p>
+      </div>
+
+      <div class="other-grid">
+        <!-- Live Video Card -->
+        <div class="card tilt-card reveal">
+          <div class="card-tag">Live Video</div>
+          <h4 class="card-heading">千民京 Live Performance</h4>
+          <p class="card-subtext">Featured guitar solo performance captured live on stage.</p>
+          <div class="playlist-embed-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/oStksGWf2wQ?rel=0&modestbranding=1"
+              title="千民京 Live Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- AG Fellowship Feature -->
+        <div class="card tilt-card reveal reveal-delay-1">
+          <div class="card-tag">Press Feature</div>
+          <h4 class="card-heading">AG Fellowship Interview</h4>
+          <p class="card-subtext">
+            “The Four Winds — Music &amp; Ministry”: An in-depth feature story exploring Cheon Minkyeong’s musical background, creative process, and the inspiration behind ISAIAH 61.
+          </p>
+          <a href="https://fellowship.j-ag.org/2021/06/01/the-four-winds/" target="_blank" rel="noopener" class="card-link">
+            Read Article in Japanese ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 / ABOUT THE ARTIST ── -->
+  <section id="about" class="section section-darker">
     <div class="container">
       <div class="about-grid">
 
-        <!-- Photo -->
-        <div class="about-photo-wrap reveal">
-          <div class="about-photo-frame">
-            <img
-              src="profile.jpg"
-              alt="Minkyeong Cheon portrait"
-              class="about-photo"
-              loading="lazy"
-            />
-          </div>
-          <div class="about-photo-accent">Guitarist<br>&amp;<br>Composer</div>
+        <div class="about-photo-wrap tilt-card reveal">
+          <img
+            src="profile.jpg"
+            alt="Minkyeong Cheon portrait"
+            class="about-photo"
+            loading="lazy"
+          />
+          <div class="about-photo-tag">Guitarist &amp; Composer</div>
         </div>
 
-        <!-- Text -->
         <div class="about-text">
-          <div class="section-eyebrow reveal">About</div>
-          <h2 class="reveal reveal-delay-1">
-            Music as a living,<br>breathing conversation.
+          <div class="chapter-number reveal">04 / THE ARTIST</div>
+          <h2 class="about-heading reveal">
+            Cheon Minkyeong<br><span class="jp-title">千 民 京</span>
           </h2>
-          <p class="reveal reveal-delay-2">
-            Minkyeong Cheon (千民京) is a guitarist, composer, and music producer whose work transcends genre boundaries. Drawing from jazz, contemporary improvisation, and world music, she crafts soundscapes that feel both deeply personal and universally resonant.
+          <p class="reveal">
+            Minkyeong Cheon (千民京) is a guitarist, composer, and music producer. Her musical world bridges contemporary jazz, acoustic storytelling, and cross-border ensemble dialogues.
           </p>
-          <p class="reveal reveal-delay-3">
-            As the creative force behind projects including <em>Elea Music</em>, the <em>Reuben Project</em>, and <em>The Four Winds</em>, she collaborates with musicians across borders, producing recordings that capture the spontaneous magic of live musical dialogue.
+          <p class="reveal">
+            Through collaborative projects like <em>The Four Winds</em>, the <em>Reuben Project</em>, and duo recordings under <em>Elea Music</em>, she creates soundscapes of intimate, spontaneous clarity.
           </p>
 
-          <div class="about-tags reveal reveal-delay-4">
-            <span class="tag">Jazz</span>
-            <span class="tag">Improvisation</span>
-            <span class="tag">Contemporary</span>
+          <div class="about-tags reveal">
+            <span class="tag">Jazz Guitar</span>
+            <span class="tag">Composition</span>
             <span class="tag">Producer</span>
-            <span class="tag">Composer</span>
-            <span class="tag">Guitar</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ================================================================
-       FEATURED VIDEO  (data-order="2")
-  ================================================================ -->
-  <section id="featured" class="section" data-order="2">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-eyebrow">Featured</div>
-        <h2 class="section-title">Watch &amp; Listen</h2>
-        <p class="section-subtitle">A glimpse into the live world of Minkyeong Cheon.</p>
-      </div>
-
-      <div class="featured-video-wrap reveal reveal-delay-1">
-        <iframe
-          id="featured-video-iframe"
-          src="https://www.youtube.com/embed/oStksGWf2wQ?rel=0&modestbranding=1&color=white"
-          title="Minkyeong Cheon — Featured Performance"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
-      </div>
-
-      <div class="video-caption reveal reveal-delay-2">
-        <span class="video-caption-text">Subscribe on YouTube for new performances and recordings.</span>
-        <a href="https://www.youtube.com/@EleaMusicTS" target="_blank" rel="noopener" class="btn-outline" id="yt-subscribe-btn" style="padding: 10px 22px; font-size: 0.78rem;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-2.75 12.64 12.64 0 0 1-8.07 2.91A12.94 12.94 0 0 1 4 6.59 4.86 4.86 0 0 0 8.85 2a4.86 4.86 0 0 0-4.85 4.86A4.92 4.92 0 0 0 4.12 8.7 12.64 12.64 0 0 0 16 12a4.86 4.86 0 0 0 3.59-8.31zM12 14.29a4.29 4.29 0 1 1 4.29-4.29A4.29 4.29 0 0 1 12 14.29z"/></svg>
-          Subscribe
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ================================================================
-       CHANNELS  (data-order="3")
-  ================================================================ -->
-  <section id="channels" class="section" data-order="3">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-eyebrow">YouTube</div>
-        <h2 class="section-title">Explore the Channels</h2>
-        <p class="section-subtitle">Each project tells a different story. Discover them all.</p>
-      </div>
-
-      <div class="channels-grid">
-
-        <!-- Elea Music -->
-        <a
-          href="https://www.youtube.com/@EleaMusicTS"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="channel-card reveal"
-          id="channel-elea"
-          aria-label="Elea Music YouTube channel"
-        >
-          <div class="channel-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </div>
-          <div class="channel-label">Channel</div>
-          <div class="channel-name">Elea Music</div>
-          <p class="channel-desc">Original music, live sessions, and intimate recordings.</p>
-          <div class="channel-arrow" aria-hidden="true">↗</div>
-        </a>
-
-        <!-- Reuben Project -->
-        <a
-          href="https://www.youtube.com/@reuben1107"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="channel-card reveal reveal-delay-1"
-          id="channel-reuben"
-          aria-label="Reuben Project YouTube channel"
-        >
-          <div class="channel-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </div>
-          <div class="channel-label">Channel</div>
-          <div class="channel-name">Reuben Project</div>
-          <p class="channel-desc">Vol. 1 &amp; Vol. 2 — a jazz quartet journey captured on film.</p>
-          <div class="channel-arrow" aria-hidden="true">↗</div>
-        </a>
-
-        <!-- The Four Winds (1) -->
-        <a
-          href="https://www.youtube.com/@thefourwinds415"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="channel-card reveal reveal-delay-2"
-          id="channel-fourwinds-1"
-          aria-label="The Four Winds YouTube channel"
-        >
-          <div class="channel-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </div>
-          <div class="channel-label">Channel</div>
-          <div class="channel-name">The Four Winds</div>
-          <p class="channel-desc">Cross-cultural collaborations that blow in from all directions.</p>
-          <div class="channel-arrow" aria-hidden="true">↗</div>
-        </a>
-
-        <!-- The Four Winds (2) -->
-        <a
-          href="https://www.youtube.com/@thefourwinds5737"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="channel-card reveal reveal-delay-3"
-          id="channel-fourwinds-2"
-          aria-label="The Four Winds Vol.5 YouTube channel"
-        >
-          <div class="channel-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </div>
-          <div class="channel-label">Channel · Vol.5</div>
-          <div class="channel-name">The Four Winds</div>
-          <p class="channel-desc">The latest chapter — Cheon Minkyeong &amp; Moritz Kolb.</p>
-          <div class="channel-arrow" aria-hidden="true">↗</div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ================================================================
-       MUSIC / SPOTIFY  (data-order="4")
-  ================================================================ -->
-  <section id="music" class="section" data-order="4">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-eyebrow">Stream</div>
-        <h2 class="section-title">Music on Spotify</h2>
-        <p class="section-subtitle">Listen to Minkyeong Cheon's recordings and produced albums.</p>
-      </div>
-
-      <div class="music-grid">
-
-        <!-- Artist Page -->
-        <div class="spotify-card reveal">
-          <div class="spotify-card-header">
-            <span class="spotify-badge">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </span>
-            <span class="spotify-label">Artist</span>
-          </div>
-          <div class="spotify-embed-wrap">
-            <iframe
-              id="spotify-artist-embed"
-              src="https://open.spotify.com/embed/artist/3HseuAz512ng1JkjhT3bG7?utm_source=generator&theme=0"
-              width="100%"
-              height="352"
-              frameborder="0"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              title="Minkyeong Cheon on Spotify"
-            ></iframe>
-          </div>
-        </div>
-
-        <!-- Produced Album -->
-        <div class="spotify-card reveal reveal-delay-2">
-          <div class="spotify-card-header">
-            <span class="spotify-badge">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </span>
-            <span class="spotify-label">Produced Album</span>
-          </div>
-          <div class="spotify-embed-wrap">
-            <iframe
-              id="spotify-album-embed"
-              src="https://open.spotify.com/embed/album/63ddq0x3eFggm9fUsXBKUx?utm_source=generator&theme=0"
-              width="100%"
-              height="352"
-              frameborder="0"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              title="Produced Album on Spotify"
-            ></iframe>
+            <span class="tag">Improvisation</span>
+            <span class="tag">Acoustic</span>
           </div>
         </div>
 
@@ -355,41 +418,40 @@
     </div>
   </section>
 
-  <!-- ================================================================
-       FOOTER
-  ================================================================ -->
-  <footer id="footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-top">
+  <!-- ── 05 / CONTACT & FOOTER ── -->
+  <footer id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
 
         <div class="footer-brand">
-          <span class="footer-logo">Minkyeong Cheon</span>
-          <p>Guitarist, composer, and music producer.<br>千民京 — Official Website</p>
+          <div class="chapter-number">05 / CONTACT</div>
+          <h3 class="footer-title">Get in touch.</h3>
+          <p class="footer-subtext">For performances, composition projects, collaborations, and music production inquiries.</p>
         </div>
 
-        <div class="footer-links-group">
-          <h4>YouTube</h4>
+        <div class="footer-links-col">
+          <h4>Channels</h4>
           <ul>
-            <li><a href="https://www.youtube.com/@EleaMusicTS" target="_blank" rel="noopener" id="footer-elea">↗ Elea Music</a></li>
-            <li><a href="https://www.youtube.com/@reuben1107" target="_blank" rel="noopener" id="footer-reuben">↗ Reuben Project</a></li>
-            <li><a href="https://www.youtube.com/@thefourwinds415" target="_blank" rel="noopener" id="footer-fw1">↗ The Four Winds</a></li>
-            <li><a href="https://www.youtube.com/@thefourwinds5737" target="_blank" rel="noopener" id="footer-fw2">↗ The Four Winds Vol.5</a></li>
+            <li><a href="https://www.youtube.com/@thefourwinds5737" target="_blank" rel="noopener">The Four Winds ↗</a></li>
+            <li><a href="https://www.youtube.com/@reuben1107" target="_blank" rel="noopener">Reuben Project ↗</a></li>
+            <li><a href="https://www.youtube.com/@EleaMusicTS" target="_blank" rel="noopener">Elea Music (Two Sides) ↗</a></li>
           </ul>
         </div>
 
-        <div class="footer-links-group">
-          <h4>Stream</h4>
+        <div class="footer-links-col">
+          <h4>Spotify</h4>
           <ul>
-            <li><a href="https://open.spotify.com/artist/3HseuAz512ng1JkjhT3bG7" target="_blank" rel="noopener" id="footer-spotify-artist">↗ Spotify — Artist</a></li>
-            <li><a href="https://open.spotify.com/album/63ddq0x3eFggm9fUsXBKUx" target="_blank" rel="noopener" id="footer-spotify-album">↗ Spotify — Produced Album</a></li>
+            <li><a href="https://open.spotify.com/artist/3HseuAz512ng1JkjhT3bG7" target="_blank" rel="noopener">EleaMusic Artist ↗</a></li>
+            <li><a href="https://open.spotify.com/album/4Z73rfzoJZTNK96i0xyU8f" target="_blank" rel="noopener">The Four Winds Vol. 2 ↗</a></li>
+            <li><a href="https://open.spotify.com/album/63ddq0x3eFggm9fUsXBKUx" target="_blank" rel="noopener">Casting the Net Album ↗</a></li>
           </ul>
         </div>
 
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; <span id="year"></span> Minkyeong Cheon. All rights reserved.</p>
-        <p style="font-size:0.7rem; opacity:0.5;">千民京 公式サイト</p>
+        <p>&copy; <span id="year"></span> Minkyeong Cheon (千民京). All rights reserved.</p>
+        <a href="#hero" class="back-to-top">Back to top ↑</a>
       </div>
     </div>
   </footer>
