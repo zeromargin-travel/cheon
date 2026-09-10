@@ -345,11 +345,17 @@
                     <div style="background-color: #fff9e6; border: 1px dashed #ffca28; padding: 1.2rem 1.5rem; border-radius: 8px; margin-bottom: 2.5rem; text-align: left;">
                         <p style="margin-top: 0; margin-bottom: 0.6rem; font-weight: 600; color: #d89b00; font-size: 1.05rem;">【 💡 Handige tip voor uw volgende bezoek 】</p>
                         <p style="color: #444; font-size: 0.95rem; margin-bottom: 0.8rem; line-height: 1.5;">Voeg deze pagina toe aan uw startscherm of favorieten, zodat u de volgende keer direct met 1-tap kunt reserveren!</p>
-                        <ul style="margin: 0; padding-left: 1.2rem; color: #555; font-size: 0.88rem; line-height: 1.6;">
+                        
+                        <!-- Mobile Guide (iPhone & Android) -->
+                        <ul class="guide-mobile-only" style="margin: 0; padding-left: 1.2rem; color: #555; font-size: 0.88rem; line-height: 1.6;">
                             <li style="margin-bottom: 0.3rem;">📱 <strong>iPhone (Safari):</strong> Tik onderaan op delen <code style="background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 4px;">[↑]</code> ➔ <strong>Zet op beginscherm</strong></li>
-                            <li style="margin-bottom: 0.3rem;">📱 <strong>Android (Chrome):</strong> Tik rechtsboven op <code style="background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 4px;">[⋮]</code> ➔ <strong>Toevoegen aan startscherm</strong></li>
-                            <li>💻 <strong>PC / Mac:</strong> Klik op het <span style="color: #d89b00;">⭐️</span>-icoon in uw browser (of druk op <strong>Ctrl+D / Cmd+D</strong>)</li>
+                            <li>📱 <strong>Android (Chrome):</strong> Tik rechtsboven op <code style="background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 4px;">[⋮]</code> ➔ <strong>Toevoegen aan startscherm</strong></li>
                         </ul>
+
+                        <!-- Desktop Guide (PC / Mac) -->
+                        <p class="guide-desktop-only" style="margin: 0; color: #555; font-size: 0.9rem; line-height: 1.5;">
+                            💻 <strong>PC / Mac:</strong> Klik op het <span style="color: #d89b00;">⭐️</span>-icoon in uw browser (of druk op <strong>Ctrl+D / Cmd+D</strong>) om deze pagina op te slaan!
+                        </p>
                     </div>
                     
                     <a href="https://calendly.com/shiatsu-massage-iyashi" target="_blank" rel="noopener noreferrer" onclick="gtag('event', 'click_calendly_button', {'event_category': 'booking', 'event_label': window.location.pathname});" style="display: inline-block; background-color: #2a2a2a; color: white; padding: 1.2rem 2.5rem; font-size: 1.15rem; font-weight: 600; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0, 0.2); transition: all 0.3s ease; width: 100%; max-width: 400px;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0, 0.2)';">

@@ -512,6 +512,12 @@ footer a:hover {
 .calendly-external-wrapper {
     padding: 2.5rem 2rem;
 }
+.guide-mobile-only {
+    display: none;
+}
+.guide-desktop-only {
+    display: block;
+}
 
 /* Dual Floating Action Bar (CTA) */
 .floating-cta-container {
@@ -651,6 +657,14 @@ iframe[src*="netlify"], #netlify-hud, [data-netlify-site-id], div[class*="netlif
     }
     .calendly-external-wrapper {
         padding: 1.5rem 1rem;
+    }
+
+    /* Device-specific Guide Toggle */
+    .guide-mobile-only {
+        display: block !important;
+    }
+    .guide-desktop-only {
+        display: none !important;
     }
 
     footer, .custom-footer {
