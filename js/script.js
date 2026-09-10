@@ -105,6 +105,7 @@ function showToast() {
             "Klik op het <b>⭐-icoon</b> in uw browser<br>of druk op <b>Ctrl+D</b> (Mac: Cmd+D)!";
     }
     
+    toast.style.cssText = "position: fixed !important; top: 80px !important; bottom: auto !important; left: 50% !important; transform: translateX(-50%) !important; background: rgba(0, 0, 0, 0.94) !important; color: white !important; padding: 16px 24px !important; border-radius: 20px !important; font-size: 14px !important; z-index: 2147483648 !important; text-align: center !important; width: 90% !important; max-width: 400px !important; box-shadow: 0 10px 30px rgba(0,0,0,0.35) !important; line-height: 1.5 !important; border: 1px solid rgba(255, 255, 255, 0.2) !important;";
     toast.innerHTML = `<b>${title}</b><br><span style="font-size: 0.9rem;">${message}</span>`;
     toast.classList.add("show");
     

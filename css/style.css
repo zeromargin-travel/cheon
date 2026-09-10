@@ -695,7 +695,8 @@ iframe[src*="netlify"], #netlify-hud, [data-netlify-site-id], div[class*="netlif
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .toast-notification.show {
-    top: 80px;
+    top: 80px !important;
+    bottom: auto !important;
 }
 
 /* Floating Favorite Pill Button */
