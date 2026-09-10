@@ -41,7 +41,7 @@ function copyShareUrl() {
 function nativeShare() {
     if (navigator.share) {
         const pageTitle = document.title || "Shiatsu Massage Iyashi";
-        const metaDescElement = document.querySelector("meta[name="description"]");
+        const metaDescElement = document.querySelector('meta[name="description"]');
         const pageDesc = metaDescElement ? metaDescElement.getAttribute("content") : "";
 
         navigator.share({
