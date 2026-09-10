@@ -676,25 +676,25 @@ iframe[src*="netlify"], #netlify-hud, [data-netlify-site-id], div[class*="netlif
 /* Toast Notification */
 .toast-notification {
     position: fixed;
-    bottom: -100px;
+    bottom: -150px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.85);
+    background: rgba(0, 0, 0, 0.92);
     color: white;
-    padding: 12px 24px;
-    border-radius: 30px;
+    padding: 14px 24px;
+    border-radius: 20px;
     font-size: 14px;
-    z-index: 1001;
+    z-index: 2147483648;
     transition: bottom 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     pointer-events: none;
     text-align: center;
     width: 90%;
     max-width: 400px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     line-height: 1.5;
 }
 .toast-notification.show {
-    bottom: 40px;
+    bottom: 95px;
 }
 
 /* Floating Favorite Pill Button */
