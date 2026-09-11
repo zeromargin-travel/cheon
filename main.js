@@ -147,15 +147,15 @@ function initThreeJsBackground() {
   });
 }
 
-/* ── 2. Interactive 3D Card Tilt ── */
+/* ── 2. Interactive 3D Card Tilt (Desktop Mouse & Mobile Touch/Gyroscope) ── */
 function init3DTiltCards() {
   const cards = document.querySelectorAll('.tilt-card');
 
   cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
+    function handleMove(clientX, clientY) {
       const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
 
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
@@ -166,12 +166,42 @@ function init3DTiltCards() {
       const rotateY = ((x - centerX) / centerX) * maxTilt;
 
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-    });
+    }
 
-    card.addEventListener('mouseleave', () => {
+    function resetTilt() {
       card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)`;
-    });
+    }
+
+    // Mouse Events (Desktop)
+    card.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+    card.addEventListener('mouseleave', resetTilt);
+
+    // Touch Events (Mobile Finger Touch)
+    card.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches[0]) {
+        handleMove(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+    card.addEventListener('touchend', resetTilt, { passive: true });
   });
+
+  // Mobile Device Orientation Gyroscope Tilt (Smartphone Tilt in Hand)
+  if (window.DeviceOrientationEvent && ('ontouchstart' in window)) {
+    window.addEventListener('deviceorientation', (e) => {
+      if (e.beta === null || e.gamma === null) return;
+      
+      const tiltX = Math.min(Math.max(e.beta - 45, -20), 20) * 0.4;
+      const tiltY = Math.min(Math.max(e.gamma, -20), 20) * 0.4;
+
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        // Only tilt cards currently visible in viewport
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          card.style.transform = `perspective(1000px) rotateX(${-tiltX}deg) rotateY(${tiltY}deg) translateZ(8px)`;
+        }
+      });
+    }, { passive: true });
+  }
 }
 
 /* ── 3. Scroll Reveal Observer ── */
